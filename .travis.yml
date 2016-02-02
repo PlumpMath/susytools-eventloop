@@ -6,8 +6,9 @@ services:
 before_install:
   - docker build -t lukasheinrich/susytools-eventloop .
 script:
-- docker run -it lukasheinrich/susytools-eventloop ./tests/travistest.sh
+- "docker run -it lukasheinrich/susytools-eventloop ./tests/travistest.sh &> run.log"
 - docker cp $(docker ps -lq):/analysis/submitDir results
+- cp run.log results
 # after_success:
 # - bash deploy.sh
 # - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"

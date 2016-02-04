@@ -14,7 +14,7 @@ if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
     if [ "$TRAVIS" == "true" ]; then
         git config --global user.email "travis@travis-ci.org"
         git config --global user.name "Travis"
-    files
+    fi
     #using token clone gh-pages branch
     git clone --quiet --branch=$BRANCH https://${GH_TOKEN}@github.com/$TARGET_REPO results_website &> /dev/null
     #go into directory and copy data we're interested in to that directory

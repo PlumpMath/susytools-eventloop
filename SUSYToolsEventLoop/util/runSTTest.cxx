@@ -67,7 +67,8 @@ int main( int argc, char* argv[] )
 
   EL::Job job;
   job.sampleHandler (sh);
-  
+  job.options()->setDouble (EL::Job::optMaxEvents, 500); 
+
   SUSYToolsTester *alg = new SUSYToolsTester;
   
   job.algsAdd (alg);

@@ -4,6 +4,8 @@
 BRANCH=gh-pages
 TARGET_REPO=lukasheinrich/susytools-eventloop-results.git
 
+set -e
+
 echo -e "Testing travis-encrypt"
 echo -e "$VARNAME"
 
@@ -19,6 +21,7 @@ if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
 
     cd results_website
     mkdir -p results
+    git add results
     rsync -rv --exclude=.git  ../results/* results
 
     #add, commit and push files
